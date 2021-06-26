@@ -6,13 +6,15 @@
   aside {
     flex: 7;
     height: 100%;
+    overflow: hidden;
 
     background: #835afd;
     color: #fff;
 
     display: flex;
     flex-direction: column;
-    justify-items: center;
+    justify-content: center;
+    align-items: center;
 
     padding: 120px 80px;
 
@@ -56,6 +58,12 @@
       align-self: center;
     }
 
+    h2 {
+      font-size: 24px;
+      margin: 64px 0 24px;
+      font-family: "Poppins", sans-serif;
+    }
+
     form {
       input {
         height: 50px;
@@ -72,6 +80,16 @@
       button,
       input {
         width: 100%;
+      }
+    }
+
+    p {
+      font-size: 14px;
+      color: #737380;
+      margin-top: 16px;
+
+      a {
+        color: #e559f9;
       }
     }
   }
