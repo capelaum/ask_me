@@ -2,6 +2,8 @@ import illustrationSvg from "../assets/images/illustration.svg"
 import logoSvg from "../assets/images/logo.svg"
 import googleIconSvg from "../assets/images/google-icon.svg"
 
+import { Button } from "../components/Button"
+
 import "../styles/auth.scss"
 
 export function Home() {
@@ -22,7 +24,7 @@ export function Home() {
           <div className="separator">ou entre em uma sala</div>
           <form action="">
             <input type="text" placeholder="Digite o código da sala" />
-            <button type="submit">Entrar na sala</button>
+            <Button type="submit">Entrar na sala</Button>
           </form>
         </div>
       </main>
