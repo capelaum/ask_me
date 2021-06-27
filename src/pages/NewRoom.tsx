@@ -22,6 +22,7 @@ export function NewRoom() {
       <main>
         <div className='main-content'>
           <img src={logoSvg} alt='ask_me' />
+          <h1>{user?.name}</h1>
           <h2>Criar uma nova sala</h2>
           <form action=''>
             <input type='text' placeholder='Nome da sala' />
