@@ -22,17 +22,19 @@
       max-width: 320px;
     }
 
-    strong {
-      font: 700 36px "Poppins", sans-serif;
-      line-height: 42px;
-      margin-top: 16px;
-    }
+    .aside-text {
+      strong {
+        font: 700 36px "Poppins", sans-serif;
+        line-height: 42px;
+        margin-top: 16px;
+      }
 
-    p {
-      font-size: 24px;
-      line-height: 23px;
-      margin-top: 16px;
-      color: #f8f8f8;
+      p {
+        font-size: 24px;
+        line-height: 23px;
+        margin-top: 16px;
+        color: #f8f8f8;
+      }
     }
   }
 
@@ -90,6 +92,11 @@
 
       a {
         color: #e559f9;
+        text-decoration: none;
+
+        &:hover {
+          text-decoration: underline;
+        }
       }
     }
   }
