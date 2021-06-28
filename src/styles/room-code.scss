@@ -1,0 +1,57 @@
+.room-code-container {
+  position: relative;
+}
+
+.room-code {
+  height: 40px;
+  border-radius: 8px;
+  overflow: hidden;
+
+  background: #fff;
+  border: 1px solid #835afd;
+  cursor: pointer;
+  display: flex;
+  outline: none;
+
+  transition: filter 0.2s;
+
+  div {
+    background: #835afd;
+    padding: 0 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  span {
+    display: block;
+    align-self: center;
+    flex: 1;
+    padding: 0 16px 0 12px;
+    width: 200px;
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+  &:hover div {
+    filter: brightness(0.9);
+  }
+}
+
+.room-code:hover .info-text {
+  display: block;
+  background-color: red;
+}
+
+.info-text {
+  position: absolute;
+  top: 44px;
+  left: 0;
+  // display: none;
+
+  font-size: 14px;
+
+  &.green {
+    color: green;
+  }
+}
