@@ -15,21 +15,13 @@ export function RoomCode({ code }: RoomCodeProps) {
     setInfoText("Código copiado");
   }
 
-  function showInfoText() {
-    setInfoText("Copiar código");
-  }
-
-  function hideInfoText() {
-    setInfoText("");
-  }
-
   return (
     <div className='room-code-container'>
       <button
         className='room-code'
         onClick={copyRoomCodeToClipboard}
-        onMouseEnter={showInfoText}
-        onMouseLeave={hideInfoText}
+        onMouseEnter={() => setInfoText("Copiar código")}
+        onMouseLeave={() => setInfoText("")}
       >
         <div>
           <img src={copySvg} alt='Copiar códido da sala' />
