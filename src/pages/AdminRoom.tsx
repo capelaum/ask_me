@@ -5,9 +5,9 @@ import logoSvg from "../assets/images/logo.svg";
 import { Button } from "../components/Button";
 import { RoomCode } from "../components/RoomCode";
 import { Question } from "../components/Question";
-
-import "./Room/styles.scss";
 import { useRoom } from "../hooks/useRoom";
+
+import "../styles/room.scss";
 
 type RoomParams = {
   id: string;
