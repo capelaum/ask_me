@@ -5,11 +5,12 @@ import logoSvg from "../assets/images/logo.svg";
 
 import { useAuth } from "../hooks/useAuth";
 import { database } from "../services/firebase";
+
 import { Button } from "../components/Button";
 import { RoomCode } from "../components/RoomCode";
+import { Question } from "../components/Question";
 
 import "../styles/room.scss";
-import { Question } from "../components/Question";
 
 type FirebaseQuestions = Record<
   string,
