@@ -1,4 +1,4 @@
-import { MouseEvent, useState } from "react";
+import { useState } from "react";
 import copySvg from "../assets/images/copy.svg";
 
 import "../styles/room-code.scss";
