@@ -1,16 +1,16 @@
 import { FormEvent, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
-import logoSvg from "../assets/images/logo.svg";
+import logoSvg from "../../assets/images/logo.svg";
 
-import { useAuth } from "../hooks/useAuth";
-import { database } from "../services/firebase";
+import { useAuth } from "../../hooks/useAuth";
+import { database } from "../../services/firebase";
 
-import { Button } from "../components/Button";
-import { RoomCode } from "../components/RoomCode";
-import { Question } from "../components/Question";
+import { Button } from "../../components/Button";
+import { RoomCode } from "../../components/RoomCode";
+import { Question } from "../../components/Question";
 
-import "../styles/room.scss";
+import "./styles.scss";
 
 type FirebaseQuestions = Record<
   string,
