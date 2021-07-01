@@ -2,6 +2,8 @@ import { useHistory, useParams } from "react-router-dom";
 
 import logoSvg from "../assets/images/logo.svg";
 import deleteSvg from "../assets/images/delete.svg";
+import checkSvg from "../assets/images/check.svg";
+import answerSvg from "../assets/images/answer.svg";
 
 import { Button } from "../components/Button";
 import { RoomCode } from "../components/RoomCode";
@@ -26,6 +28,24 @@ export function AdminRoom() {
     });
 
     history.push("/");
+  }
+
+  async function handleCheckQuestionAsAnswered(
+    questionId: string,
+    isAnswered: boolean,
+  ) {
+    await database.ref(`rooms/${roomId}/questions/${questionId}`).update({
+      isAnswered: !isAnswered,
+    });
+  }
+
+  async function handleHightlightQuestion(
+    questionId: string,
+    isHighlighted: boolean,
+  ) {
+    await database.ref(`rooms/${roomId}/questions/${questionId}`).update({
+      isHighlighted: !isHighlighted,
+    });
   }
 
   async function handleDeleteQuestion(questionId: string) {
@@ -55,13 +75,33 @@ export function AdminRoom() {
         </div>
 
         <div className='question-list'>
-          {questions.map(({ id, content, author }) => (
-            <Question key={id} content={content} author={author}>
-              <button type='button' onClick={() => handleDeleteQuestion(id)}>
-                <img src={deleteSvg} alt='remover pergunta' />
-              </button>
-            </Question>
-          ))}
+          {questions.map(
+            ({ id, content, author, isAnswered, isHighlighted }) => (
+              <Question
+                key={id}
+                content={content}
+                author={author}
+                isAnswered={isAnswered}
+                isHighlighted={isHighlighted}
+              >
+                <button
+                  type='button'
+                  onClick={() => handleCheckQuestionAsAnswered(id, isAnswered)}
+                >
+                  <img src={checkSvg} alt='Marcar pergunta como respondida' />
+                </button>
+                <button
+                  type='button'
+                  onClick={() => handleHightlightQuestion(id, isHighlighted)}
+                >
+                  <img src={answerSvg} alt='Destacar pergunta' />
+                </button>
+                <button type='button' onClick={() => handleDeleteQuestion(id)}>
+                  <img src={deleteSvg} alt='Remover pergunta' />
+                </button>
+              </Question>
+            ),
+          )}
         </div>
       </main>
     </div>
