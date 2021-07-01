@@ -1,6 +1,7 @@
 import { useHistory, useParams } from "react-router-dom";
 
 import logoSvg from "../assets/images/logo.svg";
+import emptySVG from "../assets/images/empty-questions.svg";
 import deleteSvg from "../assets/images/delete.svg";
 import checkSvg from "../assets/images/check.svg";
 import answerSvg from "../assets/images/answer.svg";
@@ -73,6 +74,17 @@ export function AdminRoom() {
           <h1>Sala {title}</h1>
           {questions.length > 0 && <span>{questions.length} pergunta(s)</span>}
         </div>
+
+        {questions.length === 0 && (
+          <div className='empty-container'>
+            <img src={emptySVG} alt='Nenhuma pergunta' />
+            <h2>Nenhuma pergunta por aqui...</h2>
+            <span>
+              Envie o código desta sala para seus amigos <br /> e comece a
+              responder perguntas!
+            </span>
+          </div>
+        )}
 
         <div className='question-list'>
           {questions.map(

@@ -51,6 +51,35 @@
       }
     }
 
+    .empty-container {
+      width: 100%;
+      height: calc(100vh - 250px);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+
+      img {
+        width: 200px;
+      }
+
+      h2 {
+        text-align: center;
+        margin-top: 16px;
+        font-size: 18px;
+        font-weight: 600;
+        font-family: "Poppins", sans-serif;
+      }
+
+      span {
+        text-align: center;
+        color: #737380;
+        font-size: 14px;
+        line-height: 20px;
+        padding-top: 8px;
+      }
+    }
+
     form {
       textarea {
         width: 100%;
