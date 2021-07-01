@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useHistory } from "react-router-dom";
 import { database } from "../services/firebase";
 import { useAuth } from "./useAuth";
 
@@ -18,16 +19,33 @@ type QuestionType = {
 
 type FirebaseQuestions = Record<string, QuestionType>;
 
-export function useRoom(roomId: string) {
+export function useRoom(roomId: string, isAdminRoom = false) {
   const { user } = useAuth();
   const [questions, setQuestions] = useState<QuestionType[]>([]);
   const [title, setTitle] = useState("");
+  const history = useHistory();
 
   useEffect(() => {
     const roomRef = database.ref(`rooms/${roomId}`);
 
     roomRef.on("value", (room) => {
       const databaseRoom = room.val();
+
+      if (isAdminRoom) {
+        const roomAuthorId = databaseRoom.authorId;
+        if (user?.id !== roomAuthorId) {
+          alert("Você não tem permissão para acessar essa página 🤔");
+
+          history.push(`/rooms/${roomId}`);
+        }
+      }
+
+      if (!isAdminRoom && room.val().endedAt) {
+        alert("Essa sala já foi encerrada.");
+
+        history.push("/");
+      }
+
       const firebaseQuestions: FirebaseQuestions = databaseRoom.questions ?? {};
 
       const parsedQuestions = Object.entries(firebaseQuestions).map(
@@ -40,7 +58,7 @@ export function useRoom(roomId: string) {
             isAnswered,
             likeCount: Object.values(likes ?? {}).length,
             likeId: Object.entries(likes ?? {}).find(
-              ([key, like]) => like.authorId === user?.id,
+              ([_, like]) => like.authorId === user?.id,
             )?.[0],
           };
         },
@@ -53,7 +71,7 @@ export function useRoom(roomId: string) {
     return () => {
       roomRef.off("value");
     };
-  }, [roomId, user]);
+  }, [roomId, user, history, isAdminRoom]);
 
   return { questions, title };
 }

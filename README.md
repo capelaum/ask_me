@@ -1,6 +1,5 @@
 <div align="center">
   <h1>ask_me</h1>
-  <h2>Aplicação web de perguntas</h2>
   <img src=".github/Capa.png" alt="ask me logo">
 </div>
 
@@ -9,6 +8,8 @@
 O usuário pode criar uma sala de perguntas realizando autenticação com sua conta Google, após isso ele pode compartilhar o código gerado para que outras pessoas possam acessar a sala e criar perguntas e dar like nas perguntas que mais gostarem.
 
 O criador da sala tem acesso a uma visão de administrador em que pode destacar, marcar perguntas como respondidas ou deletar perguntas da sala.
+
+### [Live Demo](https://ask-me-4967d.web.app)
 
 ## Tecnologias
 

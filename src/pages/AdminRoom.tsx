@@ -20,11 +20,11 @@ type RoomParams = {
 
 export function AdminRoom() {
   const { id: roomId } = useParams<RoomParams>();
-  const { questions, title } = useRoom(roomId);
+  const { questions, title } = useRoom(roomId, true);
   const history = useHistory();
 
   async function handleEndRoom() {
-    database.ref(`rooms/${roomId}`).update({
+    await database.ref(`rooms/${roomId}`).update({
       endedAt: new Date(),
     });
 

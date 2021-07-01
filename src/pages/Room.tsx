@@ -28,7 +28,9 @@ export function Room() {
     if (newQuestion.trim() === "") return;
 
     if (!user)
-      throw new Error("Você precisa estar logado para criar uma noa pergunta.");
+      throw new Error(
+        "Você precisa estar logado para criar uma nova pergunta.",
+      );
 
     const question = {
       content: newQuestion,
